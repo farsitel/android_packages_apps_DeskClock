@@ -24,8 +24,8 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.provider.BaseColumns;
 import android.text.format.DateFormat;
+import android.text.format.Jalali;
 
-import java.text.DateFormatSymbols;
 import java.util.Calendar;
 
 public final class Alarm implements Parcelable {
@@ -240,16 +240,6 @@ public final class Alarm implements Parcelable {
      */
     static final class DaysOfWeek {
 
-        private static int[] DAY_MAP = new int[] {
-            Calendar.MONDAY,
-            Calendar.TUESDAY,
-            Calendar.WEDNESDAY,
-            Calendar.THURSDAY,
-            Calendar.FRIDAY,
-            Calendar.SATURDAY,
-            Calendar.SUNDAY,
-        };
-
         // Bitmask of all repeating days
         private int mDays;
 
@@ -279,15 +269,33 @@ public final class Alarm implements Parcelable {
             }
 
             // short or long form?
-            DateFormatSymbols dfs = new DateFormatSymbols();
-            String[] dayList = (dayCount > 1) ?
-                    dfs.getShortWeekdays() :
-                    dfs.getWeekdays();
+            CharSequence[] dayList = (dayCount > 1) ?
+                    new CharSequence[] {
+                    context.getText(com.android.internal.R.string.day_of_week_medium_monday),
+                    context.getText(com.android.internal.R.string.day_of_week_medium_tuesday),
+                    context.getText(com.android.internal.R.string.day_of_week_medium_wednesday),
+                    context.getText(com.android.internal.R.string.day_of_week_medium_thursday),
+                    context.getText(com.android.internal.R.string.day_of_week_medium_friday),
+                    context.getText(com.android.internal.R.string.day_of_week_medium_saturday),
+                    context.getText(com.android.internal.R.string.day_of_week_medium_sunday),
+                } : new CharSequence[] {
+                    context.getText(com.android.internal.R.string.day_of_week_long_monday),
+                    context.getText(com.android.internal.R.string.day_of_week_long_tuesday),
+                    context.getText(com.android.internal.R.string.day_of_week_long_wednesday),
+                    context.getText(com.android.internal.R.string.day_of_week_long_thursday),
+                    context.getText(com.android.internal.R.string.day_of_week_long_friday),
+                    context.getText(com.android.internal.R.string.day_of_week_long_saturday),
+                    context.getText(com.android.internal.R.string.day_of_week_long_sunday),
+                };
 
             // selected days
-            for (int i = 0; i < 7; i++) {
-                if ((mDays & (1 << i)) != 0) {
-                    ret.append(dayList[DAY_MAP[i]]);
+            boolean isJalali = Jalali.isJalali(context);
+            for (int i = 0; i < 7; i+=1) {
+                int j = i;
+                if (isJalali)
+                    j = (i + 5) % 7;
+                if ((mDays & (1 << j)) != 0) {
+                    ret.append(dayList[j]);
                     dayCount -= 1;
                     if (dayCount > 0) ret.append(
                             context.getText(R.string.day_concat));

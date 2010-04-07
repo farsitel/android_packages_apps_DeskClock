@@ -27,6 +27,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.database.sqlite.SQLiteQueryBuilder;
 import android.net.Uri;
+import android.os.SystemProperties;
 import android.text.TextUtils;
 
 public class AlarmProvider extends ContentProvider {
@@ -67,8 +68,14 @@ public class AlarmProvider extends ContentProvider {
             String insertMe = "INSERT INTO alarms " +
                     "(hour, minutes, daysofweek, alarmtime, enabled, vibrate, message, alert) " +
                     "VALUES ";
-            db.execSQL(insertMe + "(8, 30, 31, 0, 0, 1, '', '');");
-            db.execSQL(insertMe + "(9, 00, 96, 0, 0, 1, '', '');");
+
+            String calendartype = SystemProperties.get("ro.com.android.calendartype");
+            int workdays = 31;
+            if ("jalali".equals(calendartype))
+                workdays = 103; // Sat, Sun, Mon, Tue, Wed
+
+            db.execSQL(insertMe + "(8, 30, " + workdays + ", 0, 0, 1, '', '');");
+            db.execSQL(insertMe + "(9, 00, " + (0x7f ^ workdays) + ", 0, 0, 1, '', '');");
         }
 
         @Override

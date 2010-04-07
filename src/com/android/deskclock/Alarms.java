@@ -32,7 +32,6 @@ import android.provider.Settings;
 import android.text.format.DateFormat;
 
 import java.util.Calendar;
-import java.text.DateFormatSymbols;
 
 /**
  * The Alarms provider supplies info about Alarm Clock settings
@@ -540,7 +539,7 @@ public class Alarms {
     /* used by AlarmAlert */
     static String formatTime(final Context context, Calendar c) {
         String format = get24HourMode(context) ? M24 : M12;
-        return (c == null) ? "" : (String)DateFormat.format(format, c);
+        return (c == null) ? "" : (String)DateFormat.format(format, c, context);
     }
 
     /**
@@ -548,7 +547,7 @@ public class Alarms {
      */
     private static String formatDayAndTime(final Context context, Calendar c) {
         String format = get24HourMode(context) ? DM24 : DM12;
-        return (c == null) ? "" : (String)DateFormat.format(format, c);
+        return (c == null) ? "" : (String)DateFormat.format(format, c, context);
     }
 
     /**

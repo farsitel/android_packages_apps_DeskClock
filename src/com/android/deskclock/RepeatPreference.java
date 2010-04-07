@@ -21,8 +21,8 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.preference.ListPreference;
 import android.util.AttributeSet;
+import android.text.format.Jalali;
 
-import java.text.DateFormatSymbols;
 import java.util.Calendar;
 
 public class RepeatPreference extends ListPreference {
@@ -33,19 +33,32 @@ public class RepeatPreference extends ListPreference {
     // dialog.
     private Alarm.DaysOfWeek mNewDaysOfWeek = new Alarm.DaysOfWeek(0);
 
+    private boolean isJalali = false;
+
     public RepeatPreference(Context context, AttributeSet attrs) {
         super(context, attrs);
 
-        String[] weekdays = new DateFormatSymbols().getWeekdays();
-        String[] values = new String[] {
-            weekdays[Calendar.MONDAY],
-            weekdays[Calendar.TUESDAY],
-            weekdays[Calendar.WEDNESDAY],
-            weekdays[Calendar.THURSDAY],
-            weekdays[Calendar.FRIDAY],
-            weekdays[Calendar.SATURDAY],
-            weekdays[Calendar.SUNDAY],
-        };
+        CharSequence[] values = new CharSequence[] {
+            context.getText(com.android.internal.R.string.day_of_week_long_monday),
+            context.getText(com.android.internal.R.string.day_of_week_long_tuesday),
+            context.getText(com.android.internal.R.string.day_of_week_long_wednesday),
+            context.getText(com.android.internal.R.string.day_of_week_long_thursday),
+            context.getText(com.android.internal.R.string.day_of_week_long_friday),
+            context.getText(com.android.internal.R.string.day_of_week_long_saturday),
+            context.getText(com.android.internal.R.string.day_of_week_long_sunday),
+         };
+        isJalali = Jalali.isJalali(context);
+        if (isJalali) {
+            values = new CharSequence[] {
+                context.getText(com.android.internal.R.string.day_of_week_long_saturday),
+                context.getText(com.android.internal.R.string.day_of_week_long_sunday),
+                context.getText(com.android.internal.R.string.day_of_week_long_monday),
+                context.getText(com.android.internal.R.string.day_of_week_long_tuesday),
+                context.getText(com.android.internal.R.string.day_of_week_long_wednesday),
+                context.getText(com.android.internal.R.string.day_of_week_long_thursday),
+                context.getText(com.android.internal.R.string.day_of_week_long_friday),
+            };
+        }
         setEntries(values);
         setEntryValues(values);
     }
@@ -64,11 +77,25 @@ public class RepeatPreference extends ListPreference {
         CharSequence[] entries = getEntries();
         CharSequence[] entryValues = getEntryValues();
 
+        boolean[] daysOfWeek = mDaysOfWeek.getBooleanArray();
+        if (isJalali)
+            daysOfWeek = new boolean[] {
+                daysOfWeek[5],
+                daysOfWeek[6],
+                daysOfWeek[0],
+                daysOfWeek[1],
+                daysOfWeek[2],
+                daysOfWeek[3],
+                daysOfWeek[4],
+            };
+
         builder.setMultiChoiceItems(
-                entries, mDaysOfWeek.getBooleanArray(),
+                entries, daysOfWeek,
                 new DialogInterface.OnMultiChoiceClickListener() {
                     public void onClick(DialogInterface dialog, int which,
                             boolean isChecked) {
+                        if (isJalali)
+                            which = (which + 5) % 7;
                         mNewDaysOfWeek.set(which, isChecked);
                     }
                 });

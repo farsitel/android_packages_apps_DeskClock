@@ -172,7 +172,7 @@ public class DigitalClock extends LinearLayout {
             mCalendar.setTimeInMillis(System.currentTimeMillis());
         }
 
-        CharSequence newTime = DateFormat.format(mFormat, mCalendar);
+        CharSequence newTime = DateFormat.format(mFormat, mCalendar, getContext());
         mTimeDisplay.setText(newTime);
         mAmPm.setIsMorning(mCalendar.get(Calendar.AM_PM) == 0);
     }
