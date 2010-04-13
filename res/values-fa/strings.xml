@@ -23,7 +23,7 @@
     <string name="alarm_list_title">زنگ‌ها</string>
 
     <!-- Menu item on Alarm Clock screen: Add alarm -->
-    <string name="add_alarm">اضافه کردن زنگ</string>
+    <string name="add_alarm">افزودن زنگ</string>
 
     <!-- Menu item on Alarm Clock screen: Desk clock -->
     <string name="menu_desk_clock">ساعت رومیزی</string>
@@ -35,10 +35,10 @@
     <string name="delete_alarm">حذف زنگ</string>
 
     <!-- Context Menu Item on Alarm Settings screen: Enable alarm -->
-    <string name="enable_alarm">روشن کردن زنگ</string>
+    <string name="enable_alarm">روشن‌کردن زنگ</string>
 
     <!-- Context Menu Item on Alarm Settings screen: Disable alarm -->
-    <string name="disable_alarm">خاموش کردن زنگ</string>
+    <string name="disable_alarm">خاموش‌کردن زنگ</string>
 
     <!-- Delete alarm confirmation dialog message. -->
     <string name="delete_alarm_confirm">این زنگ حذف خواهد شد.</string>
@@ -47,7 +47,7 @@
     <string name="show_clock">نمایش ساعت</string>
 
     <!-- Menu item on Alarm Clock screen: Hide clock -->
-    <string name="hide_clock">پنهان کردن ساعت</string>
+    <string name="hide_clock">پنهان‌کردن ساعت</string>
 
     <!-- Setting label on Set alarm screen: Label -->
     <string name="label">برچسب</string>
@@ -71,7 +71,7 @@
     <string name="time">ساعت</string>
 
     <!-- Button labels on the alarm dialog: Dismiss -->
-    <string name="alarm_alert_dismiss_text">از کار انداختن</string>
+    <string name="alarm_alert_dismiss_text">لغو کن</string>
 
     <!-- Alarm Alert screen: this message is shown after an alarm rung
          unattended for a number of minutes.  It tells the user that
@@ -79,11 +79,11 @@
     <string name="alarm_alert_alert_silenced">صدای زنگ پس از <xliff:g id="minutes">%d</xliff:g> دقیقه قطع شد.</string>
 
     <!-- Button labels on the alarm dialog: Snooze -->
-    <string name="alarm_alert_snooze_text">چرت</string>
+    <string name="alarm_alert_snooze_text">تاخیر بیانداز</string>
 
     <!-- Toast that appears after Alarm is snoozed from the Alarm
          dialog. Says the alarm will snooze for xxx minutes.  -->
-    <string name="alarm_alert_snooze_set">چرت زدن به مدت <xliff:g id="minutes">%d</xliff:g> دقیقه</string>
+    <string name="alarm_alert_snooze_set">به مدت <xliff:g id="minutes">%d</xliff:g> دقیقه به تاخیر بیانداز</string>
 
     <!-- 0: nothing
          1: days
@@ -134,7 +134,7 @@
     <!-- Repeat options that appear under an alarm on main Alarm Clock
          screen to identify repetition schedule: special case for when
          the alarm is set to never repeat -->
-    <string name="never">هیچگاه</string>
+    <string name="never">هیچوقت</string>
 
     <!-- Repeat options that appear under an alarm on main Alarm Clock
          screen to identify repetition schedule: concatenate days with
@@ -157,10 +157,10 @@
     <string name="alarm_in_silent_mode_title">زنگ در حالت بی‌صدا</string>
 
     <!-- Setting summary for whether the alarm should play in silent mode. -->
-    <string name="alarm_in_silent_mode_summary">صدای زنگ را پخش کن، حتی اگر گوشی در حالت بی‌صدا است.</string>
+    <string name="alarm_in_silent_mode_summary">حتی اگر گوشی در حالت بی‌صدا است، صدای زنگ را پخش کن.</string>
 
     <!-- Setting title for changing the snooze duration. -->
-    <string name="snooze_duration_title">مدت زمان چرت</string>
+    <string name="snooze_duration_title">مدت زمان تاخیر</string>
 
     <!-- Entries listed in the ListPreference when invoking the snooze duration
          preference. -->
@@ -203,25 +203,25 @@
     <string name="silent_alarm_summary">بی‌صدا</string>
 
     <!-- Text to display in the small text of the notification -->
-    <string name="alarm_notify_text">برای از کار انداختن یا   زنگ انتخاب کنید.</string>
+    <string name="alarm_notify_text">برای به تاخیر انداختن یا لغو زنگ، انتخاب کنید.</string>
 
     <!-- Text to display in the notification ticker and label -->
-    <string name="alarm_notify_snooze_label"><xliff:g id="label">%s</xliff:g> (در چرت)</string>
+    <string name="alarm_notify_snooze_label"><xliff:g id="label">%s</xliff:g> (به تاخیر افتاد)</string>
 
     <!-- Text to display in the notification when the alarm has been snoozed -->
-    <string name="alarm_notify_snooze_text">زنگ تنظیم شده برای <xliff:g id="time">%s</xliff:g>. برای انصراف انتخاب کنید.</string>
+    <string name="alarm_notify_snooze_text">زنگ برای <xliff:g id="time">%s</xliff:g> تنظیم شد. برای لغو انتخاب کنید.</string>
 
     <!-- Title of the setting to change the volume/camera button behavior. -->
-    <string name="volume_button_setting_title">رفتار دکمه کناری</string>
+    <string name="volume_button_setting_title">رفتار دکمهٔ کناری</string>
 
     <!-- The summary of the side button setting. -->
     <string name="volume_button_setting_summary">رفتار موردنظرتان برای دکمه‌های کناری در هنگام زنگ را تنظیم کنید</string>
 
     <!-- Entries listed in the setting for the side-button action. -->
     <string-array name="volume_button_setting_entries">
-      <item>هیچی</item>
-      <item>چرت</item>
-      <item>از کار افتادن</item>
+      <item>هیچکدام</item>
+      <item>تاخیر</item>
+      <item>لغو</item>
     </string-array>
 
     <!-- Values for the side-button setting. -->
@@ -233,7 +233,7 @@
 
     <!-- Accessibility labels for Clock activity buttons --><skip/>
     <string name="alarm_button_description">زنگ‌ها</string>
-    <string name="gallery_button_description">نگارخانه</string>
+    <string name="gallery_button_description">گالری</string>
     <string name="music_button_description">موسیقی</string>
     <string name="nightmode_button_description">کم‌نور کردن</string>
     <string name="home_button_description">راه‌انداز</string>
