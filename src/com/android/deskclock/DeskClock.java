@@ -507,7 +507,7 @@ public class DeskClock extends Activity {
     private void refreshDate() {
         final Date now = new Date();
         if (DEBUG) Log.d(LOG_TAG, "refreshing date..." + now);
-        mDate.setText(DateFormat.format(mDateFormat, now));
+        mDate.setText(DateFormat.format(mDateFormat, now, this));
     }
 
     private void refreshAlarm() {
