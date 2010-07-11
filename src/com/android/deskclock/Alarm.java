@@ -26,6 +26,7 @@ import android.provider.BaseColumns;
 import android.text.format.DateFormat;
 import android.text.format.Jalali;
 
+import java.text.DateFormatSymbols;
 import java.util.Calendar;
 
 public final class Alarm implements Parcelable {
@@ -269,7 +270,7 @@ public final class Alarm implements Parcelable {
             }
 
             // short or long form?
-            CharSequence[] dayList = (dayCount > 1) ?
+/*            CharSequence[] dayList = (dayCount > 1) ?
                     new CharSequence[] {
                     context.getText(com.android.internal.R.string.day_of_week_medium_monday),
                     context.getText(com.android.internal.R.string.day_of_week_medium_tuesday),
@@ -286,7 +287,12 @@ public final class Alarm implements Parcelable {
                     context.getText(com.android.internal.R.string.day_of_week_long_friday),
                     context.getText(com.android.internal.R.string.day_of_week_long_saturday),
                     context.getText(com.android.internal.R.string.day_of_week_long_sunday),
-                };
+                };*/
+                
+            DateFormatSymbols dfs = new DateFormatSymbols();
+            String[] dayList = (dayCount > 1) ?
+                    dfs.getShortWeekdays() :
+                    dfs.getWeekdays();
 
             // selected days
             boolean isJalali = Jalali.isJalali(context);
