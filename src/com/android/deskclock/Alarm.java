@@ -24,9 +24,9 @@ import android.os.Parcel;
 import android.os.Parcelable;
 import android.provider.BaseColumns;
 import android.text.format.DateFormat;
+import android.text.format.DateUtils;
 import android.text.format.Jalali;
 
-import java.text.DateFormatSymbols;
 import java.util.Calendar;
 
 public final class Alarm implements Parcelable {
@@ -270,30 +270,10 @@ public final class Alarm implements Parcelable {
             }
 
             // short or long form?
-/*            CharSequence[] dayList = (dayCount > 1) ?
-                    new CharSequence[] {
-                    context.getText(com.android.internal.R.string.day_of_week_medium_monday),
-                    context.getText(com.android.internal.R.string.day_of_week_medium_tuesday),
-                    context.getText(com.android.internal.R.string.day_of_week_medium_wednesday),
-                    context.getText(com.android.internal.R.string.day_of_week_medium_thursday),
-                    context.getText(com.android.internal.R.string.day_of_week_medium_friday),
-                    context.getText(com.android.internal.R.string.day_of_week_medium_saturday),
-                    context.getText(com.android.internal.R.string.day_of_week_medium_sunday),
-                } : new CharSequence[] {
-                    context.getText(com.android.internal.R.string.day_of_week_long_monday),
-                    context.getText(com.android.internal.R.string.day_of_week_long_tuesday),
-                    context.getText(com.android.internal.R.string.day_of_week_long_wednesday),
-                    context.getText(com.android.internal.R.string.day_of_week_long_thursday),
-                    context.getText(com.android.internal.R.string.day_of_week_long_friday),
-                    context.getText(com.android.internal.R.string.day_of_week_long_saturday),
-                    context.getText(com.android.internal.R.string.day_of_week_long_sunday),
-                };*/
+            CharSequence[] dayList = new CharSequence[7];
+            for (int i=0; i<7 ; i++)
+                dayList[i] = DateUtils.getDayOfWeekString(((i + 1) % 7) + 1, (dayCount > 1) ? DateUtils.LENGTH_SHORT : DateUtils.LENGTH_LONG);
                 
-            DateFormatSymbols dfs = new DateFormatSymbols();
-            String[] dayList = (dayCount > 1) ?
-                    dfs.getShortWeekdays() :
-                    dfs.getWeekdays();
-
             // selected days
             boolean isJalali = Jalali.isJalali(context);
             for (int i = 0; i < 7; i+=1) {

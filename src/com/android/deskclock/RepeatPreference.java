@@ -21,9 +21,9 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.preference.ListPreference;
 import android.util.AttributeSet;
+import android.text.format.DateUtils;
 import android.text.format.Jalali;
 
-import java.text.DateFormatSymbols;
 import java.util.Calendar;
 
 public class RepeatPreference extends ListPreference {
@@ -39,32 +39,15 @@ public class RepeatPreference extends ListPreference {
     public RepeatPreference(Context context, AttributeSet attrs) {
         super(context, attrs);
 
-/*        CharSequence[] values = new CharSequence[] {
-            context.getText(com.android.internal.R.string.day_of_week_long_monday),
-            context.getText(com.android.internal.R.string.day_of_week_long_tuesday),
-            context.getText(com.android.internal.R.string.day_of_week_long_wednesday),
-            context.getText(com.android.internal.R.string.day_of_week_long_thursday),
-            context.getText(com.android.internal.R.string.day_of_week_long_friday),
-            context.getText(com.android.internal.R.string.day_of_week_long_saturday),
-            context.getText(com.android.internal.R.string.day_of_week_long_sunday),
-         }; */
-        DateFormatSymbols dfs = new DateFormatSymbols();
-        CharSequence[] values = dfs.getWeekdays();
+        CharSequence[] values = new CharSequence[7];
+        for (int i=0; i<7 ; i++)
+            values[i] = DateUtils.getDayOfWeekString(((i + 1) % 7) + 1, DateUtils.LENGTH_LONG);
 
         isJalali = Jalali.isJalali(context);
         if (isJalali) {
-/*            values = new CharSequence[] {
-                context.getText(com.android.internal.R.string.day_of_week_long_saturday),
-                context.getText(com.android.internal.R.string.day_of_week_long_sunday),
-                context.getText(com.android.internal.R.string.day_of_week_long_monday),
-                context.getText(com.android.internal.R.string.day_of_week_long_tuesday),
-                context.getText(com.android.internal.R.string.day_of_week_long_wednesday),
-                context.getText(com.android.internal.R.string.day_of_week_long_thursday),
-                context.getText(com.android.internal.R.string.day_of_week_long_friday),
-            }; */
-            CharSequence[] values1 = values;
-            for (int i=0; i<7; i++)
-                values[i] = values1[(i+5) % 7];
+            values = new CharSequence[] {
+                values[5], values[6], values[0], values[1], values[2], values[3], values[4]
+            };
         }
         setEntries(values);
         setEntryValues(values);
