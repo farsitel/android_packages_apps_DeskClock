@@ -105,7 +105,7 @@
         <item>این زنگ برای <xliff:g id="MINUTES" example="2 minutes">%3$s</xliff:g> دیگر تنظیم شد.</item>
         <item>این زنگ برای <xliff:g id="DAYS" example="2 days">%1$s</xliff:g> و <xliff:g id="MINUTES" example="2 minutes">%3$s</xliff:g> دیگر تنظیم شد.</item>
         <item>این زنگ برای <xliff:g id="HOURS" example="2 hours">%2$s</xliff:g> و <xliff:g id="MINUTES" example="2 minutes">%3$s</xliff:g> دیگر تنظیم شد.</item>
-        <item>Tاین زنگ برای <xliff:g id="DAYS" example="2 days">%1$s</xliff:g>، <xliff:g id="HOURS" example="2 hours">%2$s</xliff:g>، و <xliff:g id="MINUTES" example="2 minutes">%3$s</xliff:g> دیگر تنظیم شد.</item>
+        <item>این زنگ برای <xliff:g id="DAYS" example="2 days">%1$s</xliff:g>، <xliff:g id="HOURS" example="2 hours">%2$s</xliff:g>، و <xliff:g id="MINUTES" example="2 minutes">%3$s</xliff:g> دیگر تنظیم شد.</item>
     </string-array>
 
     <!-- Alarm confirmation toast: singular day -->
