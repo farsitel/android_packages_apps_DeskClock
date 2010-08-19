@@ -429,15 +429,15 @@ public class DeskClock extends Activity {
             mWeatherCurrentTemperatureString =
                 cur.isNull(colTemp)
                     ? "\u2014"
-                    : String.format("%d\u00b0", cur.getInt(colTemp));
+                    : String.format("%Ld\u00b0", cur.getInt(colTemp));
             mWeatherHighTemperatureString =
                 cur.isNull(colHigh)
                     ? "\u2014"
-                    : String.format("%d\u00b0", cur.getInt(colHigh));
+                    : String.format("%Ld\u00b0", cur.getInt(colHigh));
             mWeatherLowTemperatureString =
                 cur.isNull(colLow)
                     ? "\u2014"
-                    : String.format("%d\u00b0", cur.getInt(colLow));
+                    : String.format("%Ld\u00b0", cur.getInt(colLow));
         } else {
             Log.w(LOG_TAG, "No weather information available (cur="
                 + cur +")");
