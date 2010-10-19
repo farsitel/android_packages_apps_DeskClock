@@ -139,11 +139,11 @@
     <!-- Repeat options that appear under an alarm on main Alarm Clock
          screen to identify repetition schedule: concatenate days with
          this character, i.e. "Mon, Tue, Wed" -->
-    <string name="day_concat">"، "</string>
+    <string name="day_concat">، </string>
 
     <!-- Appears at the top of the Clock Picker screen: Tell user to
          select a clock to display -->
-    <string name="clock_instructions">ساعتی را برای نمایش انتخاب کنید.</string>
+    <string name="clock_instructions">یک ساعت را برای نمایش انتخاب کنید.</string>
 
     <!-- Label for analog clock gadget, shown in list of all gadgets -->
     <string name="analog_gadget">ساعت عقربه‌ای</string>
