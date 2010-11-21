@@ -71,7 +71,7 @@ public class AlarmProvider extends ContentProvider {
 
             int workdays = 31;
             if (Jalali.isJalali(null))
-                workdays = 103; // Sat, Sun, Mon, Tue, Wed
+                workdays = 111; // Sat, Sun, Mon, Tue, Wed, Thu
 
             db.execSQL(insertMe + "(8, 30, " + workdays + ", 0, 0, 1, '', '');");
             db.execSQL(insertMe + "(9, 00, " + (0x7f ^ workdays) + ", 0, 0, 1, '', '');");
