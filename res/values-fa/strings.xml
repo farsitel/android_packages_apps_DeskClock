@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2007 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+  
+          http://www.apache.org/licenses/LICENSE-2.0
+  
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- -->
+    <!-- Label shown on launcher icon -->
+    <string name="app_label">ساعت</string>
+
+    <!-- Title for AlarmClock activity -->
+    <string name="alarm_list_title">هشدارها</string>
+
+    <!-- Menu item on Alarm Clock screen: Add alarm -->
+    <string name="add_alarm">افزودن هشدار</string>
+
+    <!-- Menu item on Alarm Clock screen: Desk clock -->
+    <string name="menu_desk_clock">ساعت رومیزی</string>
+
+    <!-- Menu item on Alarm Clock screen: Edit alarm -->
+    <string name="menu_edit_alarm">ویرایش هشدار</string>
+
+    <!-- Context Menu Item on Alarm Settings screen: Delete alarm -->
+    <string name="delete_alarm">حذف هشدار</string>
+
+    <!-- Context Menu Item on Alarm Settings screen: Enable alarm -->
+    <string name="enable_alarm">روشن کردن هشدار</string>
+
+    <!-- Context Menu Item on Alarm Settings screen: Disable alarm -->
+    <string name="disable_alarm">خاموش کردن هشدار</string>
+
+    <!-- Delete alarm confirmation dialog message. -->
+    <string name="delete_alarm_confirm">این هشدار حذف شود؟</string>
+
+    <!-- Menu item on Alarm Clock screen: Show clock -->
+    <string name="show_clock">نمایش ساعت</string>
+
+    <!-- Menu item on Alarm Clock screen: Hide clock -->
+    <string name="hide_clock">پنهان کردن ساعت</string>
+
+    <!-- Setting label on Set alarm screen: Label -->
+    <string name="label">برچسب</string>
+
+    <!-- Default label to display for an alarm -->
+    <string name="default_label">هشدار</string>
+
+    <!-- Preference category on Alarm Settings screen: Set alarm -->
+    <string name="set_alarm">تنظیم کردن هشدار</string>
+
+    <!-- Setting labels on Set alarm screen: Vibration on or off -->
+    <string name="alarm_vibrate">لرزش</string>
+
+    <!-- Setting labels on Set alarm screen: Repeat -->
+    <string name="alarm_repeat">تکرار</string>
+
+    <!-- Setting labels on Set alarm screen: Select alarm ringtone  -->
+    <string name="alert">زنگ هشدار</string>
+
+    <!-- Setting labels on Set alarm screen: Set time  -->
+    <string name="time">ساعت</string>
+
+    <!-- Button labels on the alarm dialog: Dismiss -->
+    <string name="alarm_alert_dismiss_text">قطع</string>
+
+    <!-- Alarm Alert screen: this message is shown after an alarm rung
+         unattended for a number of minutes.  It tells the user that
+         the alarm has been silenced.-->
+    <string name="alarm_alert_alert_silenced">هشدار پس از <xliff:g id="minutes">%Ld</xliff:g> دقیقه قطع ‌شد.</string>
+
+    <!-- Button labels on the alarm dialog: Snooze -->
+    <string name="alarm_alert_snooze_text">تأخیر</string>
+
+    <!-- Toast that appears after Alarm is snoozed from the Alarm
+         dialog. Says the alarm will snooze for xxx minutes.  -->
+    <string name="alarm_alert_snooze_set"><xliff:g id="minutes">%Ld</xliff:g> دقیقه به تأخیر افتاد.</string>
+
+    <!-- 0: nothing
+         1: days
+         2:      hours
+         3: days hours
+         4:            minutes
+         5: days       minutes
+         6:      hours minutes
+         7: days hours minutes
+    --><skip />
+
+    <!-- Alarm confirmation toast: Describes how long from now until
+         alarm fires -->
+    <string-array name="alarm_set">
+        <item>برای کمتر از ۱ دقیقه دیگر تنظیم شد.</item>
+        <item>برای <xliff:g id="DAYS" example="2 days">%1$Ls</xliff:g> دیگر تنظیم شد.</item>
+        <item>برای  <xliff:g id="HOURS" example="2 hours">%2$Ls</xliff:g> دیگر تنظیم شد.</item>
+        <item>برای <xliff:g id="DAYS" example="2 days">%1$Ls</xliff:g> و <xliff:g id="HOURS" example="2 hours">%2$Ls</xliff:g> دیگر تنظیم شد.</item>
+        <item>برای <xliff:g id="MINUTES" example="2 minutes">%3$Ls</xliff:g> دیگر تنظیم شد.</item>
+        <item>برای <xliff:g id="DAYS" example="2 days">%1$Ls</xliff:g> و <xliff:g id="MINUTES" example="2 minutes">%3$Ls</xliff:g> دیگر تنظیم شد.</item>
+        <item>برای <xliff:g id="HOURS" example="2 hours">%2$Ls</xliff:g> و <xliff:g id="MINUTES" example="2 minutes">%3$Ls</xliff:g> دیگر تنظیم شد.</item>
+        <item>برای <xliff:g id="DAYS" example="2 days">%1$Ls</xliff:g> و <xliff:g id="HOURS" example="2 hours">%2$Ls</xliff:g> و <xliff:g id="MINUTES" example="2 minutes">%3$Ls</xliff:g> دیگر تنظیم شد.</item>
+    </string-array>
+
+    <!-- Alarm confirmation toast: singular day -->
+    <string name="day">‏۱ روز</string>
+
+    <!-- Alarm confirmation toast: plural days -->
+    <string name="days">‏<xliff:g id="days">%Ls</xliff:g> روز</string>
+
+    <!-- Alarm confirmation toast: singular hour -->
+    <string name="hour">‏۱ ساعت</string>
+
+    <!-- Alarm confirmation toast: plural hours -->
+    <string name="hours">‏<xliff:g id="hours">%Ls</xliff:g> ساعت</string>
+
+    <!-- Alarm confirmation toast: singular minute  -->
+    <string name="minute">‏۱ دقیقه</string>
+
+    <!-- Alarm confirmation toast: plural minutes  -->
+    <string name="minutes">‏<xliff:g id="minutes">%Ls</xliff:g> دقیقه</string>
+
+    <!-- Repeat options that appear under an alarm on main Alarm Clock
+         screen to identify repetition schedule: special case for when
+         the alarm is set to repeat every day -->
+    <string name="every_day">هر روز</string>
+
+    <!-- Repeat options that appear under an alarm on main Alarm Clock
+         screen to identify repetition schedule: special case for when
+         the alarm is set to never repeat -->
+    <string name="never">هرگز</string>
+
+    <!-- Repeat options that appear under an alarm on main Alarm Clock
+         screen to identify repetition schedule: concatenate days with
+         this character, i.e. "Mon, Tue, Wed" -->
+    <string name="day_concat">، </string>
+
+    <!-- Appears at the top of the Clock Picker screen: Tell user to
+         select a clock to display -->
+    <string name="clock_instructions">یک ساعت را برای نمایش انتخاب کنید.</string>
+
+    <!-- Label for analog clock gadget, shown in list of all gadgets -->
+    <string name="analog_gadget">ساعت عقربه‌ای</string>
+
+    <!-- Menu item title for general Alarm Clock Settings -->
+    <string name="settings">تنظیمات</string>
+
+    <!-- Setting title for whether the alarm should play in silent mode.
+         Usually, silent mode only affects the ringer, but this setting
+         will make the alarms respect silent mode too. -->
+    <string name="alarm_in_silent_mode_title">هشدار در حالت بی‌صدا</string>
+
+    <!-- Setting summary for whether the alarm should play in silent mode. -->
+    <string name="alarm_in_silent_mode_summary">زنگ هشدار حتی در حالت بی‌صدا هم پخش شود.</string>
+
+    <!-- Setting title for changing the snooze duration. -->
+    <string name="snooze_duration_title">مدت زمان تأخیر</string>
+
+    <!-- Entries listed in the ListPreference when invoking the snooze duration
+         preference. -->
+    <string-array name="snooze_duration_entries">
+      <item>‏۵ دقیقه</item>
+      <item>‏۱۰ دقیقه</item>
+      <item>‏۱۵ دقیقه</item>
+      <item>‏۲۰ دقیقه</item>
+      <item>‏۲۵ دقیقه</item>
+      <item>‏۳۰ دقیقه</item>
+    </string-array>
+
+    <!-- Done button when editing an alarm. -->
+    <string name="done">ذخیره</string>
+
+    <!-- Revert button when editing an alarm. -->
+    <string name="revert">لغو</string>
+
+    <!-- Delete button when editing an alarm. -->
+    <string name="delete">حذف</string>
+
+    <!-- Setting title for changing the alarm volume. -->
+    <string name="alarm_volume_title">بلندی صدا</string>
+
+    <!-- Setting summary for changing the alarm volume. -->
+    <string name="alarm_volume_summary">تنظیم بلندی صدای هشدارها</string>
+
+    <!-- Summary for the alarm preference when silent is chosen. -->
+    <string name="silent_alarm_summary">بی‌صدا</string>
+
+    <!-- Text to display in the small text of the notification -->
+    <string name="alarm_notify_text">می‌توانید این هشدار را قطع کنید یا به تأخیر بیندازید.</string>
+
+    <!-- Text to display in the notification ticker and label -->
+    <string name="alarm_notify_snooze_label"><xliff:g id="label">‏%Ls</xliff:g> (به تأخیر افتاد)</string>
+
+    <!-- Text to display in the notification when the alarm has been snoozed -->
+    <string name="alarm_notify_snooze_text">هشدار برای <xliff:g id="time">%Ls</xliff:g> تنظیم شد. از اینجا لغو کنید.</string>
+
+    <!-- Title of the setting to change the volume/camera button behavior. -->
+    <string name="volume_button_setting_title">صدا و دوربین</string>
+
+    <!-- Dialog title of the volume and power setting. -->
+    <string name="volume_button_dialog_title">عملکرد دکمه</string>
+
+    <!-- The summary of the side button setting. -->
+    <string name="volume_button_setting_summary">تنظیم عملکرد این دکمه‌ها در هنگام زنگ هشدار</string>
+
+    <!-- Entries listed in the setting for the side-button action. -->
+    <string-array name="volume_button_setting_entries">
+      <item>هیچکدام</item>
+      <item>تأخیر</item>
+      <item>قطع</item>
+    </string-array>
+
+    <!-- Accessibility labels for Clock activity buttons --><skip/>
+    <string name="alarm_button_description">هشدارها</string>
+    <string name="gallery_button_description">گالری</string>
+    <string name="music_button_description">موسیقی</string>
+    <string name="nightmode_button_description">تاریک</string>
+    <string name="home_button_description">صفحهٔ خانه</string>
+    <string name="desk_clock_button_description">نمایش ساعت</string>
+
+    <!-- A short representation of charging information, e.g "34%" -->
+    <string name="battery_charging_level"><xliff:g id="percent">٪</xliff:g><xliff:g id="number">%Ld</xliff:g></string>
+
+    <!-- What to show the user if the weather widget exists but fails to
+         respond. This is a sign of an error; if the weather widget is not
+         present on the device, we show nothing at all. -->
+    <string name="weather_fetch_failure">اطلاعات آب و هوا در حال حاضر در دسترس نیست.</string>
+
+    <string name="menu_item_dock_settings" msgid="9161438664257429372">تنظیمات پایهٔ گوشی</string>
+
+</resources>
+
+

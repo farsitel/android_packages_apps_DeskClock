@@ -21,8 +21,9 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.preference.ListPreference;
 import android.util.AttributeSet;
+import android.text.format.DateUtils;
+import android.text.format.Jalali;
 
-import java.text.DateFormatSymbols;
 import java.util.Calendar;
 
 public class RepeatPreference extends ListPreference {
@@ -33,19 +34,21 @@ public class RepeatPreference extends ListPreference {
     // dialog.
     private Alarm.DaysOfWeek mNewDaysOfWeek = new Alarm.DaysOfWeek(0);
 
+    private boolean isJalali = false;
+
     public RepeatPreference(Context context, AttributeSet attrs) {
         super(context, attrs);
 
-        String[] weekdays = new DateFormatSymbols().getWeekdays();
-        String[] values = new String[] {
-            weekdays[Calendar.MONDAY],
-            weekdays[Calendar.TUESDAY],
-            weekdays[Calendar.WEDNESDAY],
-            weekdays[Calendar.THURSDAY],
-            weekdays[Calendar.FRIDAY],
-            weekdays[Calendar.SATURDAY],
-            weekdays[Calendar.SUNDAY],
-        };
+        CharSequence[] values = new CharSequence[7];
+        for (int i=0; i<7 ; i++)
+            values[i] = DateUtils.getDayOfWeekString(((i + 1) % 7) + 1, DateUtils.LENGTH_LONG);
+
+        isJalali = Jalali.isJalali(context);
+        if (isJalali) {
+            values = new CharSequence[] {
+                values[5], values[6], values[0], values[1], values[2], values[3], values[4]
+            };
+        }
         setEntries(values);
         setEntryValues(values);
     }
@@ -64,11 +67,25 @@ public class RepeatPreference extends ListPreference {
         CharSequence[] entries = getEntries();
         CharSequence[] entryValues = getEntryValues();
 
+        boolean[] daysOfWeek = mDaysOfWeek.getBooleanArray();
+        if (isJalali)
+            daysOfWeek = new boolean[] {
+                daysOfWeek[5],
+                daysOfWeek[6],
+                daysOfWeek[0],
+                daysOfWeek[1],
+                daysOfWeek[2],
+                daysOfWeek[3],
+                daysOfWeek[4],
+            };
+
         builder.setMultiChoiceItems(
-                entries, mDaysOfWeek.getBooleanArray(),
+                entries, daysOfWeek,
                 new DialogInterface.OnMultiChoiceClickListener() {
                     public void onClick(DialogInterface dialog, int which,
                             boolean isChecked) {
+                        if (isJalali)
+                            which = (which + 5) % 7;
                         mNewDaysOfWeek.set(which, isChecked);
                     }
                 });

@@ -27,6 +27,7 @@ import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.database.sqlite.SQLiteQueryBuilder;
 import android.net.Uri;
+import android.text.format.Jalali;
 import android.text.TextUtils;
 
 public class AlarmProvider extends ContentProvider {
@@ -66,12 +67,17 @@ public class AlarmProvider extends ContentProvider {
                        "no_dialog INTEGER);");
 
             // insert default alarms
-            String insertMe = "INSERT INTO alarms "
+            String insertMe = "INSERT INTO alarms " +
                     + "(hour, minutes, daysofweek, alarmtime, enabled, vibrate, "
                     + "message, alert, intent, no_dialog) "
-                    + "VALUES ";
-            db.execSQL(insertMe + "(8, 30, 31, 0, 0, 1, '', '', '', 0);");
-            db.execSQL(insertMe + "(9, 00, 96, 0, 0, 1, '', '', '', 0);");
+                    "VALUES ";
+
+            int workdays = 31;
+            if (Jalali.isJalali(null))
+                workdays = 111; // Sat, Sun, Mon, Tue, Wed, Thu
+
+            db.execSQL(insertMe + "(8, 30, " + workdays + ", 0, 0, 1, '', '', '', 0);");
+            db.execSQL(insertMe + "(9, 00, " + (0x7f ^ workdays) + ", 0, 0, 1, '', '', '', 0);");
         }
 
         @Override

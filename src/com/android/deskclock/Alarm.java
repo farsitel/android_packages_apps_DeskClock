@@ -24,10 +24,14 @@ import android.net.Uri;
 import android.os.Parcel;
 import android.os.Parcelable;
 import android.provider.BaseColumns;
+import android.text.format.DateFormat;
+import android.text.format.DateUtils;
+import android.text.format.Jalali;
 import android.text.TextUtils;
 
 import java.net.URISyntaxException;
 import java.text.DateFormatSymbols;
+
 import java.util.Calendar;
 
 public final class Alarm implements Parcelable {
@@ -274,16 +278,6 @@ public final class Alarm implements Parcelable {
      */
     static final class DaysOfWeek {
 
-        private static int[] DAY_MAP = new int[] {
-            Calendar.MONDAY,
-            Calendar.TUESDAY,
-            Calendar.WEDNESDAY,
-            Calendar.THURSDAY,
-            Calendar.FRIDAY,
-            Calendar.SATURDAY,
-            Calendar.SUNDAY,
-        };
-
         // Bitmask of all repeating days
         private int mDays;
 
@@ -313,15 +307,18 @@ public final class Alarm implements Parcelable {
             }
 
             // short or long form?
-            DateFormatSymbols dfs = new DateFormatSymbols();
-            String[] dayList = (dayCount > 1) ?
-                    dfs.getShortWeekdays() :
-                    dfs.getWeekdays();
-
+            CharSequence[] dayList = new CharSequence[7];
+            for (int i=0; i<7 ; i++)
+                dayList[i] = DateUtils.getDayOfWeekString(((i + 1) % 7) + 1, (dayCount > 1) ? DateUtils.LENGTH_SHORT : DateUtils.LENGTH_LONG);
+                
             // selected days
-            for (int i = 0; i < 7; i++) {
-                if ((mDays & (1 << i)) != 0) {
-                    ret.append(dayList[DAY_MAP[i]]);
+            boolean isJalali = Jalali.isJalali(context);
+            for (int i = 0; i < 7; i+=1) {
+                int j = i;
+                if (isJalali)
+                    j = (i + 5) % 7;
+                if ((mDays & (1 << j)) != 0) {
+                    ret.append(dayList[j]);
                     dayCount -= 1;
                     if (dayCount > 0) ret.append(
                             context.getText(R.string.day_concat));
