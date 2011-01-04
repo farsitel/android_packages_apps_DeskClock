@@ -67,10 +67,10 @@ public class AlarmProvider extends ContentProvider {
                        "no_dialog INTEGER);");
 
             // insert default alarms
-            String insertMe = "INSERT INTO alarms " +
+            String insertMe = "INSERT INTO alarms "
                     + "(hour, minutes, daysofweek, alarmtime, enabled, vibrate, "
                     + "message, alert, intent, no_dialog) "
-                    "VALUES ";
+                    + "VALUES ";
 
             int workdays = 31;
             if (Jalali.isJalali(null))
